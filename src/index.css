@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Aurora Background Animation */
+.aurora-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.aurora-g-1,
+.aurora-g-2,
+.aurora-g-3,
+.aurora-g-4 {
+  position: absolute;
+  mix-blend-mode: multiply;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.7;
+  animation: aurora 15s infinite ease-in-out alternate;
+}
+
+.aurora-g-1 {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%);
+  width: 40%;
+  height: 40%;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.aurora-g-2 {
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%);
+  width: 35%;
+  height: 35%;
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.aurora-g-3 {
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.3) 0%, transparent 70%);
+  width: 45%;
+  height: 45%;
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.aurora-g-4 {
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.2) 0%, transparent 70%);
+  width: 30%;
+  height: 30%;
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 6s;
+}
+
+@keyframes aurora {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  33% {
+    transform: translateX(-20px) translateY(-30px) scale(1.1);
+  }
+  66% {
+    transform: translateX(20px) translateY(20px) scale(0.9);
+  }
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+/* Dark mode aurora adjustments */
+.dark .aurora-g-1,
+.dark .aurora-g-2,
+.dark .aurora-g-3,
+.dark .aurora-g-4 {
+  mix-blend-mode: screen;
+  opacity: 0.4;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
