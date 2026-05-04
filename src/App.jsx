@@ -121,7 +121,7 @@ export default function App() {
     try {
       setCallLoading(true);
       setCallResult('');
-      const alertCallUrl = import.meta.env.VITE_ALERT_CALL_URL || 'http://localhost:3002/api/alert-call';
+      const alertCallUrl = import.meta.env.VITE_ALERT_CALL_URL || 'https://smart-dipper-express.onrender.com/api/alert-call';
       const body = { moisture: currentMoisture, message: alertMessage || undefined };
       const resp = await fetch(alertCallUrl, {
         method: 'POST',
