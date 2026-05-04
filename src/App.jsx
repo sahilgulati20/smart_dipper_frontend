@@ -14,6 +14,7 @@ export default function App() {
   const DIPPER_COLLECTION = import.meta.env.VITE_DIPPER_COLLECTION || 'dipper';
   const DIPPER_DOC_ID = import.meta.env.VITE_DIPPER_DOC_ID || '918791752379';
   const MOISTURE_FIELD = import.meta.env.VITE_DIPPER_MOISTURE_FIELD || 'moisture';
+  const ALERT_PHONE_NUMBER = import.meta.env.VITE_ALERT_PHONE_NUMBER || '+917753037950';
 
   // 1. Start once Firebase is available
   useEffect(() => {
@@ -122,7 +123,7 @@ export default function App() {
       setCallLoading(true);
       setCallResult('');
       const alertCallUrl = import.meta.env.VITE_ALERT_CALL_URL || 'https://smart-dipper-express.onrender.com/api/alert-call';
-      const body = { moisture: currentMoisture, message: alertMessage || undefined };
+      const body = { moisture: currentMoisture, message: alertMessage || undefined, to: ALERT_PHONE_NUMBER };
       const resp = await fetch(alertCallUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
